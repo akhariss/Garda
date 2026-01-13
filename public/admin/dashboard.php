@@ -10,45 +10,59 @@ require_once __DIR__ . '/../layout/header.php';
 ?>
 
 <div class="row">
-    <!-- Main Card -->
-    <div class="card" style="grid-column: span 2;">
-        <h2 style="margin-bottom: 20px;">Administrator Overview</h2>
-        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
-            Sistem Garda saat ini sedang berjalan dalam mode operasional penuh. Anda memiliki otorisasi tingkat tinggi untuk mengelola akses pengguna, memvalidasi laporan PKL, serta memantau integritas data yang disimpan dalam ledger internal.
-        </p>
-        <button class="nav-link active" style="border:none; cursor:pointer; display:inline-flex; width:auto; padding: 12px 24px;">
-            Mulai Audit Sistem
-        </button>
+    <!-- Main Info Section -->
+    <div class="col col-8">
+        <div class="card">
+            <h2>Dashboard Overview</h2>
+            <p class="mt-1 muted">System Status: <span class="badge badge-success">Online</span></p>
+            <p class="mt-2">
+                Manage internship ecosystem, validate logbooks, and ensure data integrity via internal blockchain ledger. Fully authorized control center.
+            </p>
+            <div class="mt-2" style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-primary">Audit System</button>
+                <button class="btn btn-accent">User Manager</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Integrity Status -->
-    <div class="card">
-        <h3>System Integrity</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 10px 0;">Current Session Identity Hash (CAP):</p>
-        <div class="hash-code" style="background: #f1f5f9; padding: 10px; border-radius: 8px; word-break: break-all;">
-            <?php echo $_SESSION['cap']; ?>
-        </div>
-        <div style="margin-top: 20px; font-size: 0.85rem; color: #10b981; font-weight: 600;">
-            <i class="ph-bold ph-sketch-logo"></i> Sync Status: Blockchain Linked
+    <!-- Integrity Sidebar -->
+    <div class="col col-4">
+        <div class="card">
+            <h3>Integrity Shield</h3>
+            <p class="muted mt-1">Identity Hash (CAP):</p>
+            <div class="hash-box mt-1">
+                <?= $_SESSION['cap']; ?>
+            </div>
+            <div class="mt-2">
+                <p style="color: var(--primary-teal); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.05em;">
+                    SECURED BY BLOCKCHAIN
+                </p>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="row" style="margin-top: 24px;">
-    <div class="card">
-        <h4>User Statistik</h4>
-        <div style="font-size: 2rem; font-weight: 800; margin: 10px 0; color: var(--primary);">142</div>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">Mahasiswa aktif terdaftar</p>
+<div class="row mt-2">
+    <div class="col">
+        <div class="card text-center">
+            <h4 class="muted">Active Students</h4>
+            <div style="font-size: 2rem; font-weight: 900; color: var(--text-main); margin: 0.5rem 0;">142</div>
+            <p class="badge badge-success">Verified</p>
+        </div>
     </div>
-    <div class="card">
-        <h4>Laporan Pending</h4>
-        <div style="font-size: 2rem; font-weight: 800; margin: 10px 0; color: #f59e0b;">12</div>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">Menunggu verifikasi admin</p>
+    <div class="col">
+        <div class="card text-center">
+            <h4 class="muted">Pending Logs</h4>
+            <div style="font-size: 2rem; font-weight: 900; color: var(--accent-gold); margin: 0.5rem 0;">12</div>
+            <p class="badge badge-warning">Review Needed</p>
+        </div>
     </div>
-    <div class="card">
-        <h4>Server Health</h4>
-        <div style="font-size: 2rem; font-weight: 800; margin: 10px 0; color: #10b981;">99.9%</div>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">Uptime bulan ini</p>
+    <div class="col">
+        <div class="card text-center">
+            <h4 class="muted">System Uptime</h4>
+            <div style="font-size: 2rem; font-weight: 900; color: var(--primary-teal); margin: 0.5rem 0;">99.9%</div>
+            <p class="muted">Encrypted Health</p>
+        </div>
     </div>
 </div>
 

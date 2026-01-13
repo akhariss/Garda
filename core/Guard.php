@@ -33,12 +33,14 @@ class Guard {
     }
 
     private static function kickOut($reason) {
-        header("Location: ../index.php?error=" . $reason);
+        $dest = defined('BASE_URL') ? BASE_URL . 'public/index.php' : '../index.php';
+        header("Location: " . $dest . "?error=" . $reason);
         exit();
     }
 
     private static function kickToRouter($reason) {
-        header("Location: ../router.php?error=" . $reason);
+        $dest = defined('BASE_URL') ? BASE_URL . 'public/router.php' : '../router.php';
+        header("Location: " . $dest . "?error=" . $reason);
         exit();
     }
 }
